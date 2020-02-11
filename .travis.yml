@@ -9,10 +9,16 @@ jobs:
       - cd Rpkg
       r_check_args: --as-cran --run-donttest
     - name: "Data validation"
-      before_install:
-        - cd tests
       install:
+      addons:
+        apt:
+          update: true
+          packages:
+          - testthat
+          - ISRaD
+          - openxlsx
+          - dplyr
+          - tidyr
       script:
-        - 'R_LIBS_USER', '~/R/Library', echo: false
-        - 'R_LIBS_SITE', '/usr/local/lib/R/site-library:/usr/lib/R/site-library', echo: false
-        - Rscript ISRaD_data_test.R
+      -  cd tests
+      -  Rscript ISRaD_data_test.R
