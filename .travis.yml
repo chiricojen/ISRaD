@@ -11,5 +11,6 @@ jobs:
       r_check_args: --as-cran --run-donttest
     - name: "Data validation"
       language: c
+      before_script: cd tests
       script:
-      - cd tests Rscript ISRaD_data_test.R
+      - Rscript ISRaD_data_test.R
