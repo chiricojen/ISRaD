@@ -11,5 +11,6 @@ jobs:
     - name: "Data validation"
       before_install:
         - cd tests
+      install:
       script:
         - Rscript ISRaD_data_test.R
