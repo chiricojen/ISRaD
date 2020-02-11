@@ -9,6 +9,7 @@ jobs:
       - cd Rpkg
       r_check_args: --as-cran --run-donttest
     - name: "Data validation"
+      language: c
       before_install:
         - sudo apt install r-base
         - cd tests
