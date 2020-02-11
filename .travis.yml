@@ -10,7 +10,6 @@ jobs:
       r_check_args: --as-cran --run-donttest
     - name: "Data validation"
       before_install:
-        - sudo apt install r-base
         - cd tests
       install:
         - Rscript install_packages.R
