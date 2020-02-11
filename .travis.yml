@@ -1,8 +1,5 @@
 # this script runs R CMD check on the ISRaD package, and data validation tests on all ISRaD
 
-env:
-  - TEST_DIR=.
-  - TEST_DIR=./Rpkg
 jobs:
   include:
     - name: "R package"
@@ -13,7 +10,6 @@ jobs:
       - cd Rpkg
       r_check_args: --as-cran --run-donttest
     - name: "Data validation"
-      env: TEST_DIR=.
       language: c
       script:
       - cd tests Rscript ISRaD_data_test.R
