@@ -4,7 +4,9 @@ library(openxlsx)
 library(dplyr)
 library(tidyr)
 
-dataset_directory <- "~/ISRaD/ISRaD_data_files/" #Use absolute path where the data is stored
+wd <- getwd()
+setwd("..")
+dataset_directory <- file.path(getwd(), "ISRaD_data_files") #Use absolute path where the data is stored
 
 data_files <- list.files(dataset_directory, full.names = TRUE)
 data_files <- data_files[grep("\\.xlsx", data_files)]

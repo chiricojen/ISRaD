@@ -1,5 +1,18 @@
-language: r
-before_install:
-  - sudo apt install libgdal-dev
-  - cd Rpkg
-r_check_args: --as-cran --run-donttest
+# this script runs R CMD check on the ISRaD package, and data validation tests on all ISRaD
+
+env:
+  - TEST_DIR=.
+  - TEST_DIR=./Rpkg
+jobs:
+  include:
+    - name: "R package"
+      env: TEST_DIR=./Rpkg
+      language: r
+      before_install:
+      - sudo apt install libgdal-dev
+      - cd Rpkg
+      r_check_args: --as-cran --run-donttest
+    - name: "Data validation"
+      env: TEST_DIR=.
+      script:
+      - cd tests Rscript ISRaD_data_test.R

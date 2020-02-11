@@ -407,6 +407,7 @@ test_that("general QAQC", {
   }
 
   ##### check numeric values #####
+      emptytabs<-names(data)[unlist(lapply(data, function(x) all(is.na(x))))]
   which.nonnum <- function(x) {
     badNum <- is.na(suppressWarnings(as.numeric(as.character(x))))
     which(badNum & !is.na(x))
