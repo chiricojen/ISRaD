@@ -10,7 +10,9 @@ jobs:
       - cd Rpkg
       r_check_args: --as-cran --run-donttest
     - name: "Data validation"
-      language: c
-      before_script: cd tests
+      language: r
+      before_install: cd tests
+      install:
+      - R -e 'devtools::install_deps(dep = T)'
       script:
       - Rscript ISRaD_data_test.R
