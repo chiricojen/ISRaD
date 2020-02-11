@@ -1,4 +1,4 @@
-# this script runs R CMD check on the ISRaD package, and data validation tests on all ISRaD
+# this script runs R CMD check on the ISRaD package, and data validation tests on all ISRaD data
 
 language: r
 jobs:
